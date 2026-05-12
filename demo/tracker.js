@@ -3,7 +3,7 @@
 
   // ── Configuration ────────────────────────────────────────────────────────────
   const ENDPOINT =
-    window.CF_ENDPOINT || 'http://localhost:4000/api/events';
+    window.CF_ENDPOINT || 'https://causalfunnel-demo.onrender.com/api/events';
   const SESSION_KEY = 'cf_session_id';
 
   // ── Session ID ───────────────────────────────────────────────────────────────
