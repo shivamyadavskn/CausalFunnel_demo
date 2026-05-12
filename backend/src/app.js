@@ -50,25 +50,33 @@ app.use((err, _req, res, _next) => {
 });
 
 // ─── Database & Server ─────────────────────────────────────────────────────────
-const startServer = async () => {
+const MAX_RETRIES = 5;
+const RETRY_DELAY_MS = 5000;
+
+const connectWithRetry = async (retriesLeft = MAX_RETRIES) => {
   try {
     await mongoose.connect(MONGO_URI);
-    console.log(`✅ MongoDB connected: ${MONGO_URI}`);
-
-    app.listen(PORT, () => {
-      console.log(`🚀 Server running at http://localhost:${PORT}`);
-      console.log(`📊 API docs:`);
-      console.log(`   POST  http://localhost:${PORT}/api/events`);
-      console.log(`   GET   http://localhost:${PORT}/api/sessions`);
-      console.log(`   GET   http://localhost:${PORT}/api/sessions/:id`);
-      console.log(`   GET   http://localhost:${PORT}/api/heatmap?page=<url>`);
-      console.log(`   GET   http://localhost:${PORT}/api/stats`);
-      console.log(`   GET   http://localhost:${PORT}/api/pages`);
-    });
+    console.log('✅ MongoDB connected');
   } catch (err) {
-    console.error('❌ Failed to connect to MongoDB:', err.message);
+    console.error(`❌ MongoDB connection failed: ${err.message}`);
+    if (retriesLeft > 0) {
+      console.log(`🔄 Retrying in ${RETRY_DELAY_MS / 1000}s… (${retriesLeft} attempts left)`);
+      await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
+      return connectWithRetry(retriesLeft - 1);
+    }
+    console.error('💥 Could not connect to MongoDB. Exiting.');
     process.exit(1);
   }
 };
 
+const startServer = async () => {
+  await connectWithRetry();
+
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+    console.log('📊 API endpoints: /api/events  /api/sessions  /api/heatmap  /api/stats  /api/pages');
+  });
+};
+
 startServer();
+
