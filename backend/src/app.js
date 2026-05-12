@@ -34,6 +34,19 @@ app.use(
 );
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true }));
+// Accept text/plain from sendBeacon (sent on page unload to avoid CORS preflight)
+app.use((req, _res, next) => {
+  if (req.headers['content-type'] === 'text/plain' && req.method === 'POST') {
+    let raw = '';
+    req.on('data', (chunk) => { raw += chunk; });
+    req.on('end', () => {
+      try { req.body = JSON.parse(raw); } catch { req.body = {}; }
+      next();
+    });
+  } else {
+    next();
+  }
+});
 
 // Request logger
 app.use((req, _res, next) => {

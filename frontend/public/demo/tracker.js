@@ -41,31 +41,35 @@
   }
 
   // ── Send Event ───────────────────────────────────────────────────────────────
-  function sendEvent(eventData) {
-    // Use sendBeacon for reliability on page unload, fetch otherwise
+  function sendEvent(eventData, useBeacon) {
     const payload = JSON.stringify(eventData);
 
-    if (navigator.sendBeacon) {
-      const blob = new Blob([payload], { type: 'application/json' });
-      const success = navigator.sendBeacon(ENDPOINT, blob);
-      if (!success) {
-        // Fallback to fetch
-        fetchSend(payload);
-      }
-    } else {
-      fetchSend(payload);
+    // Use fetch as primary transport — fully CORS-compatible
+    if (!useBeacon) {
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload,
+        keepalive: true,
+      }).catch(function (err) {
+        console.warn('[CausalFunnel] Failed to send event:', err);
+      });
+      return;
     }
-  }
 
-  function fetchSend(payload) {
-    fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: payload,
-      keepalive: true,
-    }).catch(function (err) {
-      console.warn('[CausalFunnel] Failed to send event:', err);
-    });
+    // On page unload, sendBeacon is more reliable but MUST use text/plain
+    // to avoid CORS preflight (which sendBeacon cannot negotiate)
+    if (navigator.sendBeacon) {
+      const blob = new Blob([payload], { type: 'text/plain' });
+      navigator.sendBeacon(ENDPOINT, blob);
+    } else {
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload,
+        keepalive: true,
+      }).catch(function () {});
+    }
   }
 
   // ── Track: Page View ──────────────────────────────────────────────────────────
