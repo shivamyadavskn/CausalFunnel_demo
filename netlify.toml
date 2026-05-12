@@ -1,0 +1,15 @@
+[build]
+  base    = "frontend"
+  command = "npm run build"
+  publish = "frontend/dist"
+
+# React Router — serve index.html for all app routes
+[[redirects]]
+  from   = "/demo/*"
+  to     = "/demo/:splat"
+  status = 200
+
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
