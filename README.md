@@ -1,6 +1,6 @@
-peaceful-starlight-64510b.netlify.app
-eclectic-selkie-7c0c23.netlify.app
-https://causalfunnel-demo.onrender.com
+dashboard url: peaceful-starlight-64510b.netlify.app
+mainwebsite: eclectic-selkie-7c0c23.netlify.app
+api deployed: https://causalfunnel-demo.onrender.com
 
 # CausalFunnel — User Analytics Application
 
