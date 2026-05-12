@@ -2,7 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 import StatCard from '../components/StatCard';
 import EventTimeline from '../components/EventTimeline';
 
-const API = 'http://localhost:4000/api';
+const API = import.meta.env.VITE_API_URL || '/api';
+
 
 function formatRelativeTime(ts) {
   if (!ts) return '—';

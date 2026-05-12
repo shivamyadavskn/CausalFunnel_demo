@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
-const API = 'http://localhost:4000/api';
+const API = import.meta.env.VITE_API_URL || '/api';
+
 
 // Normalize click coordinates to a fixed canvas size
 const CANVAS_W = 1280;
