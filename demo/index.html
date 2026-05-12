@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ShopWave — Demo Store | CausalFunnel Tracking</title>
   <meta name="description" content="A demo e-commerce page with CausalFunnel analytics tracking enabled." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
       --primary: #6366f1;
@@ -39,7 +47,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
     }
 
     .header-inner {
@@ -78,8 +86,9 @@
       transition: all 0.15s;
     }
 
-    nav a:hover, nav a.active {
-      background: rgba(99,102,241,0.1);
+    nav a:hover,
+    nav a.active {
+      background: rgba(99, 102, 241, 0.1);
       color: var(--primary);
     }
 
@@ -138,17 +147,22 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 60% 40%, rgba(99,102,241,0.3) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 60% 40%, rgba(99, 102, 241, 0.3) 0%, transparent 60%);
     }
 
-    .hero-content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(99,102,241,0.2);
-      border: 1px solid rgba(99,102,241,0.4);
+      background: rgba(99, 102, 241, 0.2);
+      border: 1px solid rgba(99, 102, 241, 0.4);
       border-radius: 99px;
       padding: 5px 14px;
       font-size: 12px;
@@ -175,7 +189,7 @@
 
     .hero p {
       font-size: 16px;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255, 255, 255, 0.65);
       margin-bottom: 32px;
       max-width: 440px;
       margin-left: auto;
@@ -195,14 +209,14 @@
       text-decoration: none;
       cursor: pointer;
       border: none;
-      box-shadow: 0 0 40px rgba(99,102,241,0.4);
+      box-shadow: 0 0 40px rgba(99, 102, 241, 0.4);
       transition: all 0.2s;
       font-family: 'Inter', sans-serif;
     }
 
     .hero-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 60px rgba(99,102,241,0.6);
+      box-shadow: 0 0 60px rgba(99, 102, 241, 0.6);
     }
 
     /* ── Filters / Categories ── */
@@ -234,7 +248,8 @@
       transition: all 0.15s;
     }
 
-    .pill:hover, .pill.active {
+    .pill:hover,
+    .pill.active {
       background: var(--primary);
       color: white;
       border-color: var(--primary);
@@ -278,15 +293,15 @@
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid var(--gray-200);
-      transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
       position: relative;
     }
 
     .product-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-      border-color: rgba(99,102,241,0.3);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+      border-color: rgba(99, 102, 241, 0.3);
     }
 
     .product-badge {
@@ -300,9 +315,20 @@
       z-index: 1;
     }
 
-    .badge-sale { background: var(--rose); color: white; }
-    .badge-new { background: var(--green); color: white; }
-    .badge-hot { background: var(--secondary); color: white; }
+    .badge-sale {
+      background: var(--rose);
+      color: white;
+    }
+
+    .badge-new {
+      background: var(--green);
+      color: white;
+    }
+
+    .badge-hot {
+      background: var(--secondary);
+      color: white;
+    }
 
     .product-img {
       width: 100%;
@@ -344,7 +370,9 @@
       margin-bottom: 12px;
     }
 
-    .stars { color: #f59e0b; }
+    .stars {
+      color: #f59e0b;
+    }
 
     .product-footer {
       display: flex;
@@ -384,7 +412,7 @@
 
     .add-to-cart:hover {
       transform: scale(1.04);
-      box-shadow: 0 4px 16px rgba(99,102,241,0.4);
+      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
     }
 
     /* ── Newsletter Section ── */
@@ -408,7 +436,7 @@
     }
 
     .newsletter p {
-      color: rgba(255,255,255,0.6);
+      color: rgba(255, 255, 255, 0.6);
       font-size: 14px;
       margin-bottom: 24px;
     }
@@ -422,15 +450,21 @@
       flex: 1;
       padding: 12px 16px;
       border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.1);
       color: white;
       font-size: 14px;
       font-family: 'Inter', sans-serif;
     }
 
-    .newsletter-input::placeholder { color: rgba(255,255,255,0.4); }
-    .newsletter-input:focus { outline: none; border-color: rgba(99,102,241,0.8); }
+    .newsletter-input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .newsletter-input:focus {
+      outline: none;
+      border-color: rgba(99, 102, 241, 0.8);
+    }
 
     .newsletter-btn {
       padding: 12px 24px;
@@ -446,12 +480,14 @@
       transition: all 0.15s;
     }
 
-    .newsletter-btn:hover { background: var(--primary-dark); }
+    .newsletter-btn:hover {
+      background: var(--primary-dark);
+    }
 
     /* ── Footer ── */
     footer {
       background: var(--gray-900);
-      color: rgba(255,255,255,0.5);
+      color: rgba(255, 255, 255, 0.5);
       text-align: center;
       padding: 24px;
       font-size: 13px;
@@ -485,8 +521,17 @@
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.8); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(0.8);
+      }
     }
 
     /* ── Toast ── */
@@ -500,308 +545,308 @@
       border-radius: 10px;
       font-size: 13px;
       font-weight: 500;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
       opacity: 0;
       transform: translateX(20px);
       transition: all 0.3s;
       z-index: 999;
     }
 
-    #toast.show { opacity: 1; transform: translateX(0); }
+    #toast.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
   </style>
 </head>
+
 <body>
 
-<!-- Tracker Badge -->
-<div class="tracker-badge">
-  <span class="tracker-dot"></span>
-  CausalFunnel Tracking Active
-</div>
+  <!-- Tracker Badge -->
+  <div class="tracker-badge">
+    <span class="tracker-dot"></span>
+    CausalFunnel Tracking Active
+  </div>
 
-<!-- Toast -->
-<div id="toast">🛒 Added to cart!</div>
+  <!-- Toast -->
+  <div id="toast">🛒 Added to cart!</div>
 
-<!-- Header -->
-<header>
-  <div class="header-inner">
-    <a href="#" class="logo">ShopWave</a>
-    <nav>
-      <a href="#" class="active">Home</a>
-      <a href="#products">Products</a>
-      <a href="#deals">Deals</a>
-      <a href="#about">About</a>
-    </nav>
-    <div class="header-actions">
-      <button id="cart-btn" class="cart-btn">
-        🛒 Cart <span id="cart-count" class="cart-count">0</span>
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">ShopWave</a>
+      <nav>
+        <a href="#" class="active">Home</a>
+        <a href="#products">Products</a>
+        <a href="#deals">Deals</a>
+        <a href="#about">About</a>
+      </nav>
+      <div class="header-actions">
+        <button id="cart-btn" class="cart-btn">
+          🛒 Cart <span id="cart-count" class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">✨ Summer Sale — Up to 60% off</div>
+      <h1>Shop <span>Smarter</span>,<br />Live Better</h1>
+      <p>Discover curated products from top brands delivered to your door in 24 hours.</p>
+      <button class="hero-cta" id="shop-now-btn">
+        Shop Now →
       </button>
     </div>
+  </section>
+
+  <!-- Category Filters -->
+  <div class="filters-bar">
+    <div class="category-pills">
+      <button class="pill active" id="cat-all">All</button>
+      <button class="pill" id="cat-electronics">Electronics</button>
+      <button class="pill" id="cat-fashion">Fashion</button>
+      <button class="pill" id="cat-home">Home</button>
+      <button class="pill" id="cat-sports">Sports</button>
+    </div>
+    <select class="sort-select" id="sort-select">
+      <option>Sort: Featured</option>
+      <option>Price: Low to High</option>
+      <option>Price: High to Low</option>
+      <option>Best Rated</option>
+    </select>
   </div>
-</header>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-badge">✨ Summer Sale — Up to 60% off</div>
-    <h1>Shop <span>Smarter</span>,<br/>Live Better</h1>
-    <p>Discover curated products from top brands delivered to your door in 24 hours.</p>
-    <button class="hero-cta" id="shop-now-btn">
-      Shop Now →
-    </button>
-  </div>
-</section>
+  <!-- Products -->
+  <section class="products-section" id="products">
+    <div class="section-label">Featured Products</div>
+    <div class="products-grid" id="products-grid">
 
-<!-- Category Filters -->
-<div class="filters-bar">
-  <div class="category-pills">
-    <button class="pill active" id="cat-all">All</button>
-    <button class="pill" id="cat-electronics">Electronics</button>
-    <button class="pill" id="cat-fashion">Fashion</button>
-    <button class="pill" id="cat-home">Home</button>
-    <button class="pill" id="cat-sports">Sports</button>
-  </div>
-  <select class="sort-select" id="sort-select">
-    <option>Sort: Featured</option>
-    <option>Price: Low to High</option>
-    <option>Price: High to Low</option>
-    <option>Best Rated</option>
-  </select>
-</div>
-
-<!-- Products -->
-<section class="products-section" id="products">
-  <div class="section-label">Featured Products</div>
-  <div class="products-grid" id="products-grid">
-
-    <div class="product-card" id="product-1">
-      <span class="product-badge badge-hot">🔥 Hot</span>
-      <div class="product-img">🎧</div>
-      <div class="product-info">
-        <div class="product-category">Electronics</div>
-        <div class="product-name">ProSound Wireless Headphones</div>
-        <div class="product-rating">
-          <span class="stars">★★★★★</span>
-          <span>4.9 (2.3k reviews)</span>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">
-            <span class="price-current">$89.99</span>
-            <span class="price-old">$149.99</span>
+      <div class="product-card" id="product-1">
+        <span class="product-badge badge-hot">🔥 Hot</span>
+        <div class="product-img">🎧</div>
+        <div class="product-info">
+          <div class="product-category">Electronics</div>
+          <div class="product-name">ProSound Wireless Headphones</div>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span>4.9 (2.3k reviews)</span>
           </div>
-          <button class="add-to-cart" data-product="ProSound Headphones">Add to Cart</button>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-current">$89.99</span>
+              <span class="price-old">$149.99</span>
+            </div>
+            <button class="add-to-cart" data-product="ProSound Headphones">Add to Cart</button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="product-card" id="product-2">
-      <span class="product-badge badge-new">✨ New</span>
-      <div class="product-img">⌚</div>
-      <div class="product-info">
-        <div class="product-category">Electronics</div>
-        <div class="product-name">UltraFit Smartwatch Pro</div>
-        <div class="product-rating">
-          <span class="stars">★★★★☆</span>
-          <span>4.7 (1.1k reviews)</span>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">
-            <span class="price-current">$199.00</span>
-            <span class="price-old">$279.00</span>
+      <div class="product-card" id="product-2">
+        <span class="product-badge badge-new">✨ New</span>
+        <div class="product-img">⌚</div>
+        <div class="product-info">
+          <div class="product-category">Electronics</div>
+          <div class="product-name">UltraFit Smartwatch Pro</div>
+          <div class="product-rating">
+            <span class="stars">★★★★☆</span>
+            <span>4.7 (1.1k reviews)</span>
           </div>
-          <button class="add-to-cart" data-product="UltraFit Smartwatch">Add to Cart</button>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-current">$199.00</span>
+              <span class="price-old">$279.00</span>
+            </div>
+            <button class="add-to-cart" data-product="UltraFit Smartwatch">Add to Cart</button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="product-card" id="product-3">
-      <span class="product-badge badge-sale">Sale</span>
-      <div class="product-img">👟</div>
-      <div class="product-info">
-        <div class="product-category">Fashion</div>
-        <div class="product-name">AeroRun Sport Sneakers</div>
-        <div class="product-rating">
-          <span class="stars">★★★★★</span>
-          <span>4.8 (867 reviews)</span>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">
-            <span class="price-current">$59.99</span>
-            <span class="price-old">$99.99</span>
+      <div class="product-card" id="product-3">
+        <span class="product-badge badge-sale">Sale</span>
+        <div class="product-img">👟</div>
+        <div class="product-info">
+          <div class="product-category">Fashion</div>
+          <div class="product-name">AeroRun Sport Sneakers</div>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span>4.8 (867 reviews)</span>
           </div>
-          <button class="add-to-cart" data-product="AeroRun Sneakers">Add to Cart</button>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-current">$59.99</span>
+              <span class="price-old">$99.99</span>
+            </div>
+            <button class="add-to-cart" data-product="AeroRun Sneakers">Add to Cart</button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="product-card" id="product-4">
-      <div class="product-img">☕</div>
-      <div class="product-info">
-        <div class="product-category">Home</div>
-        <div class="product-name">BrewMaster Coffee Maker</div>
-        <div class="product-rating">
-          <span class="stars">★★★★☆</span>
-          <span>4.6 (502 reviews)</span>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">
-            <span class="price-current">$74.50</span>
+      <div class="product-card" id="product-4">
+        <div class="product-img">☕</div>
+        <div class="product-info">
+          <div class="product-category">Home</div>
+          <div class="product-name">BrewMaster Coffee Maker</div>
+          <div class="product-rating">
+            <span class="stars">★★★★☆</span>
+            <span>4.6 (502 reviews)</span>
           </div>
-          <button class="add-to-cart" data-product="BrewMaster Coffee Maker">Add to Cart</button>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-current">$74.50</span>
+            </div>
+            <button class="add-to-cart" data-product="BrewMaster Coffee Maker">Add to Cart</button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="product-card" id="product-5">
-      <span class="product-badge badge-new">✨ New</span>
-      <div class="product-img">🎮</div>
-      <div class="product-info">
-        <div class="product-category">Electronics</div>
-        <div class="product-name">GamePad Elite Controller</div>
-        <div class="product-rating">
-          <span class="stars">★★★★★</span>
-          <span>4.9 (3.4k reviews)</span>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">
-            <span class="price-current">$49.99</span>
-            <span class="price-old">$69.99</span>
+      <div class="product-card" id="product-5">
+        <span class="product-badge badge-new">✨ New</span>
+        <div class="product-img">🎮</div>
+        <div class="product-info">
+          <div class="product-category">Electronics</div>
+          <div class="product-name">GamePad Elite Controller</div>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span>4.9 (3.4k reviews)</span>
           </div>
-          <button class="add-to-cart" data-product="GamePad Elite">Add to Cart</button>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-current">$49.99</span>
+              <span class="price-old">$69.99</span>
+            </div>
+            <button class="add-to-cart" data-product="GamePad Elite">Add to Cart</button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="product-card" id="product-6">
-      <span class="product-badge badge-hot">🔥 Hot</span>
-      <div class="product-img">🧘</div>
-      <div class="product-info">
-        <div class="product-category">Sports</div>
-        <div class="product-name">FlexZone Yoga Mat Premium</div>
-        <div class="product-rating">
-          <span class="stars">★★★★☆</span>
-          <span>4.5 (234 reviews)</span>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">
-            <span class="price-current">$34.00</span>
-            <span class="price-old">$55.00</span>
+      <div class="product-card" id="product-6">
+        <span class="product-badge badge-hot">🔥 Hot</span>
+        <div class="product-img">🧘</div>
+        <div class="product-info">
+          <div class="product-category">Sports</div>
+          <div class="product-name">FlexZone Yoga Mat Premium</div>
+          <div class="product-rating">
+            <span class="stars">★★★★☆</span>
+            <span>4.5 (234 reviews)</span>
           </div>
-          <button class="add-to-cart" data-product="FlexZone Yoga Mat">Add to Cart</button>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-current">$34.00</span>
+              <span class="price-old">$55.00</span>
+            </div>
+            <button class="add-to-cart" data-product="FlexZone Yoga Mat">Add to Cart</button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="product-card" id="product-7">
-      <div class="product-img">💡</div>
-      <div class="product-info">
-        <div class="product-category">Home</div>
-        <div class="product-name">SmartGlow LED Desk Lamp</div>
-        <div class="product-rating">
-          <span class="stars">★★★★★</span>
-          <span>4.8 (789 reviews)</span>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">
-            <span class="price-current">$29.99</span>
+      <div class="product-card" id="product-7">
+        <div class="product-img">💡</div>
+        <div class="product-info">
+          <div class="product-category">Home</div>
+          <div class="product-name">SmartGlow LED Desk Lamp</div>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span>4.8 (789 reviews)</span>
           </div>
-          <button class="add-to-cart" data-product="SmartGlow LED Lamp">Add to Cart</button>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-current">$29.99</span>
+            </div>
+            <button class="add-to-cart" data-product="SmartGlow LED Lamp">Add to Cart</button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="product-card" id="product-8">
-      <span class="product-badge badge-sale">Sale</span>
-      <div class="product-img">🎒</div>
-      <div class="product-info">
-        <div class="product-category">Fashion</div>
-        <div class="product-name">TrailBlazer Backpack 40L</div>
-        <div class="product-rating">
-          <span class="stars">★★★★☆</span>
-          <span>4.4 (445 reviews)</span>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">
-            <span class="price-current">$44.99</span>
-            <span class="price-old">$79.99</span>
+      <div class="product-card" id="product-8">
+        <span class="product-badge badge-sale">Sale</span>
+        <div class="product-img">🎒</div>
+        <div class="product-info">
+          <div class="product-category">Fashion</div>
+          <div class="product-name">TrailBlazer Backpack 40L</div>
+          <div class="product-rating">
+            <span class="stars">★★★★☆</span>
+            <span>4.4 (445 reviews)</span>
           </div>
-          <button class="add-to-cart" data-product="TrailBlazer Backpack">Add to Cart</button>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-current">$44.99</span>
+              <span class="price-old">$79.99</span>
+            </div>
+            <button class="add-to-cart" data-product="TrailBlazer Backpack">Add to Cart</button>
+          </div>
         </div>
       </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
-
-<!-- Newsletter -->
-<section class="newsletter" id="about">
-  <div class="newsletter-inner">
-    <h2>Stay in the loop 📬</h2>
-    <p>Get exclusive deals, early access to sales, and new arrivals straight to your inbox.</p>
-    <div class="newsletter-form">
-      <input
-        type="email"
-        class="newsletter-input"
-        id="newsletter-email"
-        placeholder="Enter your email…"
-      />
-      <button class="newsletter-btn" id="newsletter-btn">Subscribe</button>
+  <!-- Newsletter -->
+  <section class="newsletter" id="about">
+    <div class="newsletter-inner">
+      <h2>Stay in the loop 📬</h2>
+      <p>Get exclusive deals, early access to sales, and new arrivals straight to your inbox.</p>
+      <div class="newsletter-form">
+        <input type="email" class="newsletter-input" id="newsletter-email" placeholder="Enter your email…" />
+        <button class="newsletter-btn" id="newsletter-btn">Subscribe</button>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Footer -->
-<footer>
-  <p>© 2025 ShopWave. All rights reserved. | Powered by CausalFunnel Analytics</p>
-</footer>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 ShopWave. All rights reserved. | Powered by CausalFunnel Analytics</p>
+  </footer>
 
-<!-- ── CausalFunnel Tracker ─────────────────────────────────── -->
-<script src="tracker.js"></script>
+  <!-- ── CausalFunnel Tracker ─────────────────────────────────── -->
+  <script src="tracker.js"></script>
 
-<!-- ── Demo Page Interactions ────────────────────────────────── -->
-<script>
-  let cartCount = 0;
+  <!-- ── Demo Page Interactions ────────────────────────────────── -->
+  <script>
+    let cartCount = 0;
 
-  function showToast(msg) {
-    const toast = document.getElementById('toast');
-    toast.textContent = msg;
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2500);
-  }
-
-  // Cart buttons
-  document.querySelectorAll('.add-to-cart').forEach(function (btn) {
-    btn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      cartCount++;
-      document.getElementById('cart-count').textContent = cartCount;
-      showToast('🛒 ' + btn.dataset.product + ' added to cart!');
-    });
-  });
-
-  // Category pills
-  document.querySelectorAll('.pill').forEach(function (pill) {
-    pill.addEventListener('click', function () {
-      document.querySelectorAll('.pill').forEach(function (p) { p.classList.remove('active'); });
-      pill.classList.add('active');
-    });
-  });
-
-  // Hero CTA
-  document.getElementById('shop-now-btn').addEventListener('click', function () {
-    document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
-  });
-
-  // Newsletter
-  document.getElementById('newsletter-btn').addEventListener('click', function () {
-    const email = document.getElementById('newsletter-email').value;
-    if (email && email.includes('@')) {
-      showToast('✅ Subscribed with ' + email + '!');
-      document.getElementById('newsletter-email').value = '';
-    } else {
-      showToast('⚠️ Please enter a valid email.');
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
     }
-  });
-</script>
+
+    // Cart buttons
+    document.querySelectorAll('.add-to-cart').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        cartCount++;
+        document.getElementById('cart-count').textContent = cartCount;
+        showToast('🛒 ' + btn.dataset.product + ' added to cart!');
+      });
+    });
+
+    // Category pills
+    document.querySelectorAll('.pill').forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        document.querySelectorAll('.pill').forEach(function (p) { p.classList.remove('active'); });
+        pill.classList.add('active');
+      });
+    });
+
+    // Hero CTA
+    document.getElementById('shop-now-btn').addEventListener('click', function () {
+      document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Newsletter
+    document.getElementById('newsletter-btn').addEventListener('click', function () {
+      const email = document.getElementById('newsletter-email').value;
+      if (email && email.includes('@')) {
+        showToast('✅ Subscribed with ' + email + '!');
+        document.getElementById('newsletter-email').value = '';
+      } else {
+        showToast('⚠️ Please enter a valid email.');
+      }
+    });
+  </script>
 
 </body>
+
 </html>

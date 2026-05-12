@@ -1,20 +1,3 @@
-/**
- * CausalFunnel Tracker v1.0
- * Drop this script into any webpage to start tracking user interactions.
- *
- * Tracked events:
- *   - page_view : fires on DOMContentLoaded
- *   - click     : fires on every click, with x/y coordinates
- *
- * Each event payload:
- *   { sessionId, type, pageUrl, timestamp, x, y, viewportWidth, viewportHeight,
- *     userAgent, referrer, targetTag, targetText }
- *
- * Config:
- *   Set window.CF_ENDPOINT before loading this script to override the default.
- *   e.g. <script>window.CF_ENDPOINT = 'https://your-api.com/api/events';</script>
- */
-
 (function () {
   'use strict';
 

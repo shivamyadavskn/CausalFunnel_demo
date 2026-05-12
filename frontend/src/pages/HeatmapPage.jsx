@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
 const API = import.meta.env.VITE_API_URL || '/api';
+const POLL_INTERVAL_MS = 10_000; // auto-refresh every 10 s
 
 
 // Normalize click coordinates to a fixed canvas size
@@ -120,6 +121,8 @@ export default function HeatmapPage() {
   const [loading, setLoading] = useState(false);
   const [pagesLoading, setPagesLoading] = useState(true);
   const [error, setError] = useState('');
+  const [lastUpdated, setLastUpdated] = useState(null);
+  const pollRef = useRef(null);
 
   // Load available pages
   useEffect(() => {
@@ -142,24 +145,36 @@ export default function HeatmapPage() {
   }, []);
 
   // Load click data when page changes
-  const fetchClicks = useCallback(async (page) => {
+  const fetchClicks = useCallback(async (page, silent = false) => {
     if (!page) return;
-    setLoading(true);
+    if (!silent) setLoading(true);
     setError('');
     try {
       const res = await fetch(`${API}/heatmap?page=${encodeURIComponent(page)}`);
       const data = await res.json();
       setClicks(data.clicks || []);
+      setLastUpdated(new Date());
     } catch {
       setError('Failed to load heatmap data.');
       setClicks([]);
     } finally {
-      setLoading(false);
+      if (!silent) setLoading(false);
     }
   }, []);
 
+  // Initial load + start polling when selectedPage changes
   useEffect(() => {
-    if (selectedPage) fetchClicks(selectedPage);
+    if (!selectedPage) return;
+    fetchClicks(selectedPage);
+
+    // Clear any existing interval
+    if (pollRef.current) clearInterval(pollRef.current);
+    // Poll silently every 10 s
+    pollRef.current = setInterval(() => {
+      fetchClicks(selectedPage, true);
+    }, POLL_INTERVAL_MS);
+
+    return () => clearInterval(pollRef.current);
   }, [selectedPage, fetchClicks]);
 
   return (
@@ -172,12 +187,21 @@ export default function HeatmapPage() {
             Visualize where users click most on each page
           </p>
         </div>
-        <div className="page-actions">
+        <div className="page-actions" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          {lastUpdated && (
+            <span style={{ fontSize: '12px', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{
+                width: 8, height: 8, borderRadius: '50%', background: '#10b981',
+                display: 'inline-block', boxShadow: '0 0 6px #10b981', animation: 'pulse 2s infinite'
+              }} />
+              Live · Updated {lastUpdated.toLocaleTimeString()}
+            </span>
+          )}
           <button
             className="btn btn-ghost"
             onClick={() => fetchClicks(selectedPage)}
-            disabled={!selectedPage}
-            title="Refresh"
+            disabled={!selectedPage || loading}
+            title="Refresh now"
           >
             ↻ Refresh
           </button>
