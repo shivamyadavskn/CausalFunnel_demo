@@ -9,12 +9,25 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/casualsale';
 
+const ALLOWED_ORIGINS = [
+  'http://localhost:5173',   // Vite dev (frontend)
+  'http://localhost:4000',   // backend itself (health checks)
+  'http://127.0.0.1:5173',
+  'https://causalfunnel-demo.onrender.com', // Render production
+];
+
 // ─── Middleware ────────────────────────────────────────────────────────────────
 app.use(
   cors({
-    origin: '*', // Allow all origins for demo; restrict in production
+    origin: (origin, callback) => {
+      // Allow requests with no origin (curl, Postman, server-to-server)
+      if (!origin) return callback(null, true);
+      if (ALLOWED_ORIGINS.includes(origin)) return callback(null, true);
+      callback(new Error(`CORS blocked: ${origin}`));
+    },
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
   })
 );
 app.use(express.json({ limit: '1mb' }));
