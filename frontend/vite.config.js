@@ -37,7 +37,7 @@ export default defineConfig({
     proxy: {
       // Proxy /api/* → http://localhost:4000/api/*
       '/api': {
-        target: 'http://localhost:4000',
+        target: 'https://causalfunnel-demo.onrender.com',
         changeOrigin: true,
         secure: false,
       },
