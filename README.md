@@ -1,3 +1,7 @@
+peaceful-starlight-64510b.netlify.app
+eclectic-selkie-7c0c23.netlify.app
+https://causalfunnel-demo.onrender.com
+
 # CausalFunnel — User Analytics Application
 
 A full-stack user analytics platform that tracks user interactions (page views, clicks) on a webpage and displays them in a rich analytics dashboard with session management and a visual heatmap.
