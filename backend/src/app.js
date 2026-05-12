@@ -14,6 +14,7 @@ const ALLOWED_ORIGINS = [
   'http://localhost:4000',   // backend itself (health checks)
   'http://127.0.0.1:5173',
   'https://eclectic-selkie-7c0c23.netlify.app',
+  'https://peaceful-starlight-64510b.netlify.app',
   'https://causalfunnel-demo.onrender.com', // Render production
 ];
 
